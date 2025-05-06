@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Alzheimer's Detection App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-900 text-white font-sans">
+
+  <!-- Navbar -->
+  <header class="bg-gray-800 py-4 shadow-md">
+    <div class="container mx-auto flex justify-between items-center px-6">
+      <h1 class="text-2xl font-bold text-cyan-400">Alzheimer's App</h1>
+      <nav class="space-x-6">
+        <a href="#about" class="text-white hover:text-cyan-400">About</a>
+        <a href="#services" class="text-white hover:text-cyan-400">Services</a>
+        <a href="#contact" class="text-white hover:text-cyan-400">Contact</a>
+        <a href="{{ url_for('signin') }}" class="text-white hover:text-cyan-400">Sign In</a>
+        <a href="{{ url_for('signup') }}" class="text-white hover:text-cyan-400">Sign Up</a>
+
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="text-center py-20 px-4 bg-gray-900">
+    <h2 class="text-4xl font-bold text-cyan-400 mb-4">Early Detection of Alzheimer’s with AI</h2>
+    <p class="text-gray-300 mb-8 max-w-2xl mx-auto">Upload MRI scans to detect Alzheimer's stages with deep learning. Receive suggestions and download comprehensive reports.</p>
+    <a href="{{ url_for('predict') }}" target="_blank"
+       class="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-3 px-8 rounded-xl transition duration-300">
+      Get Started
+    </a>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-16 px-6 bg-gray-800">
+    <div class="text-center mb-12">
+      <h3 class="text-3xl font-bold text-cyan-400 mb-4">About</h3>
+    </div>
+    <div class="max-w-6xl mx-auto grid gap-10 md:grid-cols-3 text-center">
+      <!-- About Block 1 -->
+      <div class="bg-gray-800 p-6 rounded-xl shadow-md">
+        <h4 class="text-xl font-bold text-cyan-300 mb-2">Mission</h4>
+        <p class="text-gray-300">Our mission is to empower early diagnosis and raise awareness by leveraging AI to make brain health screening accessible, fast, and reliable for everyone.</p>
+      </div>
+      <!-- About Block 2 -->
+      <div class="bg-gray-800 p-6 rounded-xl shadow-md">
+        <h4 class="text-xl font-bold text-cyan-300 mb-2">Technology</h4>
+        <p class="text-gray-300">Using state-of-the-art Convolutional Neural Networks (CNNs), we analyze MRI scans for Alzheimer's signs. We also integrate GPT-Neo to offer personalized suggestions.</p>
+      </div>
+      <!-- About Block 3 -->
+      <div class="bg-gray-800 p-6 rounded-xl shadow-md">
+        <h4 class="text-xl font-bold text-cyan-300 mb-2">Privacy & Security</h4>
+        <p class="text-gray-300">Your data privacy is our top priority. All uploaded scans are processed securely, with no personal data stored without consent.</p>
+      </div>
+    </div>
+    
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-16 px-6 bg-gray-900">
+    <div class="text-center mb-12">
+      <h3 class="text-3xl font-bold text-cyan-400 mb-4">Our Services</h3>
+    </div>
+    <div class="max-w-5xl mx-auto grid gap-10 md:grid-cols-3 text-center">
+      <!-- Service 1 -->
+      <div class="bg-gray-800 p-6 rounded-xl shadow-md">
+        <img src="{{ url_for('static', filename='images//mri.jpg') }}" 
+           alt="MRI Scan" class="mb-4 rounded-md mx-auto w-64 h-40 object-cover">
+        <h4 class="text-xl font-bold text-cyan-300 mb-2">MRI Prediction</h4>
+        <p class="text-gray-300">Upload brain MRI images to detect Alzheimer's stages using a trained CNN model.</p>
+      </div>
+      <!-- Service 2 -->
+      <div class="bg-gray-800 p-6 rounded-xl shadow-md">
+        <img src="{{ url_for('static', filename='images//ai suggestions.png') }}" 
+           alt="" class="mb-4 rounded-md mx-auto w-64 h-40 object-cover">
+        <h4 class="text-xl font-bold text-cyan-300 mb-2">Smart Suggestions</h4>
+        <p class="text-gray-300">Receive AI-generated recommendations based on the prediction using GPT-Neo.</p>
+      </div>
+      <!-- Service 3 -->
+      <div class="bg-gray-800 p-6 rounded-xl shadow-md">
+        <img src="{{ url_for('static', filename='images//report.png') }}" 
+           alt="" class="mb-4 rounded-md mx-auto w-64 h-40 object-cover">
+        <h4 class="text-xl font-bold text-cyan-300 mb-2">Download Reports</h4>
+        <p class="text-gray-300">Get a downloadable PDF report with prediction, suggestions, and timestamps.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 px-6 bg-gray-800">
+    <div class="text-center mb-10">
+      <h3 class="text-3xl font-bold text-cyan-400 mb-4">Contact Us</h3>
+    </div>
+    <div class="flex flex-col items-center space-y-4 text-gray-300">
+      <p><strong>Email:</strong> support@alzapp.com</p>
+      <p><strong>Phone:</strong> +91 9398724530</p>
+      <div class="flex space-x-6">
+        <a href="https://instagram.com/alzapp" class="text-cyan-400 text-2xl" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://facebook.com/alzapp" class="text-cyan-400 text-2xl" target="_blank"><i class="fab fa-facebook"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-center bg-gray-900 text-gray-500 py-6">
+    &copy; 2025 Alzheimer’s Detection App. All rights reserved.
+  </footer>
+
+</body>
+</html>
