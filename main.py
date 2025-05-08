@@ -17,12 +17,12 @@ app.secret_key = 'your_secret_key'
 
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
-MODEL_PATH = 'model.h5'
+MODEL_PATH = 'best_model.h5'
 if not os.path.exists(MODEL_PATH):
     print("Downloading the model from Google Drive...")
     # Replace with your Google Drive file ID
-    file_id = 'https://drive.google.com/file/d/13GN1t5pSFiJ5XXSc4HeJ2AQour-cahfs/view?usp=sharing'
-    gdown.download('https://drive.google.com/file/d/13GN1t5pSFiJ5XXSc4HeJ2AQour-cahfs/view?usp=sharing', MODEL_PATH, quiet=False)
+    file_id = '13GN1t5pSFiJ5XXSc4HeJ2AQour-cahfs'
+   gdown.download(f'https://drive.google.com/uc?export=download&id={file_id}',MODEL_PATH, quiet=False)
 else:
     print("Model already exists. Skipping download.")
 
