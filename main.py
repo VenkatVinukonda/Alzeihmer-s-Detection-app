@@ -8,6 +8,7 @@ import requests
 import numpy as np
 from PIL import Image
 import json
+import gdown
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
@@ -16,8 +17,17 @@ app.secret_key = 'your_secret_key'
 
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
-# Load your trained model
-model = tf.keras.models.load_model("model/best_model.h5")
+MODEL_PATH = 'model.h5'
+if not os.path.exists(MODEL_PATH):
+    print("Downloading the model from Google Drive...")
+    # Replace with your Google Drive file ID
+    file_id = 'https://drive.google.com/file/d/13GN1t5pSFiJ5XXSc4HeJ2AQour-cahfs/view?usp=sharing'
+    gdown.download('https://drive.google.com/file/d/13GN1t5pSFiJ5XXSc4HeJ2AQour-cahfs/view?usp=sharing', MODEL_PATH, quiet=False)
+else:
+    print("Model already exists. Skipping download.")
+
+# Load your model
+model = tf.keras.models.load_model(MODEL_PATH)
 
 # Classes
 classes = ['Mild Demented', 'Moderate Demented', 'Non Demented', 'Very Mild Demented']
