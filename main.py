@@ -28,7 +28,8 @@ else:
     print("Model already exists. Skipping download.")
 
 # Load your model
-model = tf.keras.models.load_model(MODEL_PATH)
+model =tf.keras.models.load_model(MODEL_PATH, compile=False)
+
 
 # Classes
 classes = ['Mild Demented', 'Moderate Demented', 'Non Demented', 'Very Mild Demented']
